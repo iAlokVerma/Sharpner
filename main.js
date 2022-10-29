@@ -1,6 +1,9 @@
-title = document.getElementById("header-title")
-add_item = document.getElementById("add_item")
-title.style.border = "solid 2px black"
-console.log(add_item)
-add_item.style.color = "green"
-add_item.style.fontWeight = "bold"
+third_element = document.querySelectorAll("li")[2]
+third_element.style.background = "green"
+
+
+li = document.querySelectorAll("li")
+for(var ele=0;ele<li.length;ele++){
+    li[ele].style.fontWeight = "bold"
+    li[ele].style.color = "red"
+}
