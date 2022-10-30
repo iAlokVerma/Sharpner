@@ -1,23 +1,11 @@
-ul = document.getElementById('items')
+second_element = document.querySelectorAll("li")[1]
+second_element.style.color = "green"
+element = document.querySelectorAll("li")
 
-new_li = document.createElement("li")
-new_li.className = "list-group-item"
-new_li.innerText = "New Element"
-ul.append(new_li)
-console.log(ul)
-
-li = document.getElementsByTagName("li")
-
-for(var i=0 ;i<li.length;i++){
-
-li[i].style.background = "pink"
-
+let count = 0
+for (let i = 0 ;i<element.length;i++){
+    if (i%2 == 0){
+        element[i].style.background = "green"
+    }
 }
 
-li = document.getElementsByClassName("list-group-item")
-console.log(li)
-for(var i=0 ;i<li.length;i++){
-
-li[i].style.color = "red"
-
-}
