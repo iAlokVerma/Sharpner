@@ -6,13 +6,14 @@ btnsubmit.addEventListener("click",saveuser)
 function saveuser(e) {
     e.preventDefault()
     if (inusername.value != "" ||  inemail.value != ""){
-        let username = inusername.value
-        let email = inemail.value
-        console.log(username)
-        console.log(email)
-        save = `user : ${username } email : ${email}`
-        console.log(save)
-        localStorage.setItem("user",`user : ${username} email : ${email}`)
+        data = {
+            "user" : inusername.value,
+            "email" : inemail.value
+        }
+        data = JSON.stringify(data)
+        console.log(data)
+        localStorage.setItem("data",data)
+        console.log(JSON.parse(localStorage.getItem("data")))
     }
     
 }
