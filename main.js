@@ -1,60 +1,34 @@
-let name ={
-    firstname:"alok",
-    lastname : "verma",
-    
-}
-let name2 = {
-    firstname : "sachin",
-    lastname : "tendulkar"
-}
-
-function printfullname(hometown,state){
-    console.log(this.firstname+" "+ this.lastname +"from  "+hometown +" "+state) 
-}
-
-// call
-printfullname.call(name,"wankhede","UP")
-printfullname.call(name2,"calcical","WB")
-// apply
-printfullname.apply(name2,["atul","verma"])
-
-// bind
-
-let f1 = printfullname.bind(name2,"name","lastname")
-f1()
-
-let student = {
-    age : 20
-}
-
-function printage() {
-    console.log(this.age)
-}
-printage.call(student)
-
-
-// ====================================
-
-
-// Currying
-
-
-let multiply = function (x,y) {
-    console.log(x*y)
-}
-let multiplyBYTwo = multiply.bind(this,2)
-multiplyBYTwo(3)
-
-
-// curryinf by function clouser
-
-let _multiply = function(x){
-    return function(y){
-        console.log(x *y)
+class Student{
+    static number_of_student = 0
+    constructor(name,age,phonenumber,board_mark){
+        this.name = name
+        this.age = age
+        this.phonenumber = phonenumber
+        this.board_mark = board_mark
+        Student.number_of_student++
+        
+    }
+    setPLacementage(minimumplacementage){
+        return (minimumpalcementmargd) => {
+                if (this.board_mark > minimumpalcementmargd && this.age > minimumplacementage){
+                    return true
+                }
+                else{
+                    return false
+                }
+            }
     }
 }
 
-let _multiplyBYTwo = _multiply(2)
-_multiplyBYTwo(3)
-let _multipleBYThree   = _multiply(3)
-_multipleBYThree(4)
+let all_student = [
+    new Student("alok","29","23456789","30"),
+    new Student("alok1","28","23456789","35"),
+    new Student("alok2","27","23456789","40"),
+    new Student("alok3","26","23456789","45"),
+    new Student("alok4","25","23456789","50"),
+]
+all_student.forEach((student) =>{
+    if(student.setPLacementage(25)(32)){
+        console.log(student.name)
+    }
+})
